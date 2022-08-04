@@ -1,0 +1,7 @@
+@use "../../styles/colors" as *;
+
+.footer {
+  background-color: $main-color;
+  color: $white;
+  font-size: 14px;
+}

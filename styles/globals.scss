@@ -1,0 +1,72 @@
+@use "./colors" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  min-height: calc(100vh - 81px);
+  // background-color: $secondery-color;
+}
+
+/* ==== Navbar style ==== */
+//style of large screen
+.navbar {
+  background-color: $white;
+  border-bottom: 1px solid $main-color;
+  z-index: 5;
+  .navbarBrand {
+    height: 64px;
+    img {
+      width: 60px;
+    }
+  }
+  .nav a {
+    color: $main-color;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover,
+    &.active {
+      color: $hover;
+    }
+  }
+  .navbar-toggler {
+    border: none;
+    span {
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='rgb(190, 156, 121)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+      width: 29px;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+.offcanvasHeader {
+  color: $main-color;
+  div {
+    font-weight: 600 !important;
+  }
+  button {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='rgb(190, 156, 121)'><path%20d='M.293.293a1%201%200%200%201%201.414%200L8%206.586%2014.293.293a1%201%200%201%201%201.414%201.414L9.414%208l6.293%206.293a1%201%200%200%201-1.414%201.414L8%209.414l-6.293%206.293a1%201%200%200%201-1.414-1.414L6.586%208%20.293%201.707a1%201%200%200%201%200-1.414z'/></svg>");
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+//style of small screen
+.offcanvasNav {
+  a {
+    color: $main-color;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover,
+    &.active {
+      color: $hover;
+    }
+  }
+}

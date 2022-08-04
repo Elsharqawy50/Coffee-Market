@@ -1,0 +1,26 @@
+@use "../../styles/colors" as *;
+
+.button {
+  background-color: $main-color;
+  color: $white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  &:hover,
+  &.active {
+    background-color: $hover;
+  }
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .badge {
+    background-color: $secondery-color;
+    padding: 0.25rem 0.75rem;
+    border-radius: 25px;
+    margin-left: 0.5rem;
+    color: $main-color;
+    font-weight: 600;
+  }
+}
