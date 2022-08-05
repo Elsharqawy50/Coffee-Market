@@ -6,7 +6,6 @@ import classes from "./HeaderCartButton.module.scss";
 const HeaderCartButton = () => {
   const router = useRouter();
 
-
   return (
     <button
       className={`${classes.button} ${

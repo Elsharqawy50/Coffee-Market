@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favi.ico" />
+          <link rel="icon" href="/nav/logo.png" />
           <meta
             name="description"
             content="See The IP Address Assigned To Your Device Or Reveal The Location Of Any IP Address."

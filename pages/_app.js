@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "../styles/globals.scss";
-import Layout from '../components/layout/Layout'
+import Layout from "../components/layout/Layout";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,5 +14,6 @@ function MyApp({ Component, pageProps }) {
     </Layout>
   );
 }
+
 
 export default MyApp;
