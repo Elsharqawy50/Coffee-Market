@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MenuItems.module.scss";
-import CardItem from '../UI/CardItem'
+import CardItem from "../UI/CardItem";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +9,13 @@ const MenuItems = (props) => {
   const { loadedMenu } = props;
   const items = loadedMenu.map((item) => (
     <Col className="mb-4" sm={12} md={6} lg={4} xl={3} key={item.id}>
-      <CardItem image={item.image} title={item.title} price={item.price} />
+      <CardItem
+        id={item.id}
+        image={item.image}
+        title={item.title}
+        price={item.price}
+        amount={item.amount}
+      />
     </Col>
   ));
 

@@ -10,6 +10,7 @@ export const getMenu = async () => {
       title: data[key].title,
       price: data[key].price,
       image: data[key].image,
+      amount: data[key].amount,
     });
   }
   return loadedItems
