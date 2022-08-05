@@ -4,9 +4,13 @@ import Card from "react-bootstrap/Card";
 import Button from "../UI/Button";
 import Container from "react-bootstrap/Container";
 import CartProduct from "./CartProduct";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Link from "next/link";
+import { CartItemsActions } from "../../store/CartItemsSlice";
 
 const Cart = () => {
+  const dispatch = useDispatch()
   const cartItems = useSelector((state) => state.cartItems.items);
   const totalAmount = useSelector((state) => state.cartItems.totalAmount);
 
@@ -26,6 +30,10 @@ const Cart = () => {
       amount={item.amount}
     />
   ));
+
+  const restItemsHandler = () => {
+    dispatch(CartItemsActions.restItems())
+  }
 
   return (
     <section className={`${classes.cart} py-5`}>
@@ -47,9 +55,11 @@ const Cart = () => {
             </div>
             <div className="d-flex align-items-center justify-content-end gap-3">
               {hasItems && (
-                <Button className="px-3 py-2 mt-2">
-                  <a href="/">Order</a>
-                </Button>
+                <Link href="/">
+                  <a>
+                    <Button onClick={restItemsHandler} className="px-3 py-2 mt-2">Order</Button>
+                  </a>
+                </Link>
               )}
             </div>
           </Card.Body>

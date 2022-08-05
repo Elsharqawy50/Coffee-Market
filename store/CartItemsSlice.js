@@ -30,6 +30,10 @@ const CartItemsSlice = createSlice({
         state.items=state.items.filter((item)=>item.id !== action.payload)
       }
       state.totalAmount = state.totalAmount - itemFounded.price
+    },
+    restItems(state) {
+      state.items = [],
+      state.totalAmount=0
     }
   }
 })
