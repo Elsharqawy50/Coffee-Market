@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { Fragment } from "react";
+import Products from "../components/products/Products";
+import { getProducts } from "../helper/getProducts";
 
-const products = () => {
+const products = (props) => {
   return (
-    <div>products</div>
-  )
-}
+    <Fragment>
+      <Products Products={props.loadedProducts} />
+    </Fragment>
+  );
+};
 
-export default products
+export const getStaticProps = async () => {
+  const loadedProducts = await getProducts();
+  return {
+    props: {
+      loadedProducts,
+    },
+    revalidate: 3600,
+  };
+};
+
+export default products;

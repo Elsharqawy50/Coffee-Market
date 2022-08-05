@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
 import MenuItems from "../components/menu/MenuItems";
 import { getMenu } from "../helper/getMenu";
 
 const menu = (props) => {
   return (
-    <div>
+    <Fragment>
       <MenuItems loadedMenu={props.loadedMenu} />
-    </div>
+    </Fragment>
   );
 };
 
 export const getStaticProps = async () => {
-  const loadedMenu = await getMenu()
+  const loadedMenu = await getMenu();
   return {
     props: {
       loadedMenu,
