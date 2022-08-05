@@ -1,3 +1,4 @@
+//helper function that fetch products data from firebase
 export const getProducts = async () => {
   const respond = await fetch(
     `https://coffee-market-f549a-default-rtdb.firebaseio.com/products.json`

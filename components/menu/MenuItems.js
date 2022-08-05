@@ -6,7 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const MenuItems = (props) => {
+  //destructuring menu items that passed from menu page
   const { loadedMenu } = props;
+  
   const items = loadedMenu.map((item) => (
     <Col className="mb-4" sm={12} md={6} lg={4} xl={3} key={item.id}>
       <CardItem

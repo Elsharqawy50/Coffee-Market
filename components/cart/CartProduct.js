@@ -8,6 +8,7 @@ const CartProduct = (props) => {
   const { image, title, price, amount,id } = props;
   const dispatch = useDispatch()
 
+  //make two numbers of digits to appear after the decimal point
   const priceNum = price.toFixed(2)
 
   const addItemHandler = () => {

@@ -5,9 +5,11 @@ import classes from "./HeaderCartButton.module.scss";
 import { useSelector } from "react-redux";
 
 const HeaderCartButton = () => {
+  //use router to check the pathname on url to put class active to cart button
   const router = useRouter();
   const cartItems = useSelector((state)=>state.cartItems.items)
 
+  // calculate the number of cart items
   const badgeNumber = cartItems.reduce((curNum, item) => {
     return curNum + item.amount
   },0)

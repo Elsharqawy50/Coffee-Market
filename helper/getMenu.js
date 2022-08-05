@@ -1,3 +1,4 @@
+//helper function that fetch menu data from firebase
 export const getMenu = async () => {
   const respond = await fetch(
     `https://coffee-market-f549a-default-rtdb.firebaseio.com/menu.json`

@@ -9,6 +9,10 @@
   .empty {
     border-bottom: 2px solid $main-color;
   }
+  a {
+    color:$white;
+    text-decoration: none;
+  }
   .card {
     box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
     border: none !important;

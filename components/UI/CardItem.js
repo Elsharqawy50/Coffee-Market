@@ -6,7 +6,9 @@ import Button from "../UI/Button";
 import { useDispatch } from "react-redux";
 import { CartItemsActions } from "../../store/CartItemsSlice";
 
+//reusable component
 const CardItem = (props) => {
+  //destructuring items that passed from products page and menu page
   const { image, title, price, id, amount } = props;
   const dispatch = useDispatch();
 
@@ -22,6 +24,7 @@ const CardItem = (props) => {
     );
   };
 
+  //make two numbers of digits to appear after the decimal point
   const loadedPrice = price.toFixed(2);
   return (
     <Card className={classes.card}>

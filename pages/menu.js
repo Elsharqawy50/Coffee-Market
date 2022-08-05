@@ -10,6 +10,7 @@ const menu = (props) => {
   );
 };
 
+//load menu data from firebase to make Next.js pre-render this page at build time 
 export const getStaticProps = async () => {
   const loadedMenu = await getMenu();
   return {

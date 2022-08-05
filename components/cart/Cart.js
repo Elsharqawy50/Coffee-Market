@@ -10,7 +10,10 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cartItems.items);
   const totalAmount = useSelector((state) => state.cartItems.totalAmount);
 
+  //make two numbers of digits to appear after the decimal point
   const totalAmountNum = totalAmount.toFixed(2);
+
+  //check if cart items added to cart to manage state of cart page
   const hasItems = cartItems.length > 0;
 
   const items = cartItems.map((item) => (
@@ -43,7 +46,11 @@ const Cart = () => {
               <span>${totalAmountNum}</span>
             </div>
             <div className="d-flex align-items-center justify-content-end gap-3">
-              {hasItems && <Button className="px-3 py-2 mt-2">Order</Button>}
+              {hasItems && (
+                <Button className="px-3 py-2 mt-2">
+                  <a href="/">Order</a>
+                </Button>
+              )}
             </div>
           </Card.Body>
         </Card>

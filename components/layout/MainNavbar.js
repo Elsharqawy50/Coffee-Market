@@ -10,7 +10,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 const MainNavbar = () => {
+  // make next wait till the component load 
   const [domLoaded, setDomLoaded] = useState(false);
+  // manage the state of offcanvas to make it close after click on link on small devices
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+
   //use router to check the pathname on url to put class active to navbar-link
   const router = useRouter();
 
@@ -36,11 +40,14 @@ const MainNavbar = () => {
             <Navbar.Toggle
               className="navbar-toggler"
               aria-controls={`offcanvasNavbar-expand-lg`}
+              onClick={() => setShowOffcanvas(!showOffcanvas)}
             />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-lg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
               placement="end"
+              show={showOffcanvas}
+              onHide={() => setShowOffcanvas(false)}
             >
               <Offcanvas.Header closeButton className="offcanvasHeader">
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
@@ -51,6 +58,7 @@ const MainNavbar = () => {
                 <Nav className="ms-auto pe-3 nav">
                   <Link href="/" passHref>
                     <a
+                      onClick={() => setShowOffcanvas(!showOffcanvas)}
                       className={`p-2 d-lg-flex  justify-content-center align-items-center ${
                         router.pathname === "/" ? "active" : ""
                       }`}
@@ -60,6 +68,7 @@ const MainNavbar = () => {
                   </Link>
                   <Link href="/menu" passHref>
                     <a
+                      onClick={() => setShowOffcanvas(!showOffcanvas)}
                       className={`p-2 d-lg-flex justify-content-center align-items-center ${
                         router.pathname === "/menu" ? "active" : ""
                       }`}
@@ -69,6 +78,7 @@ const MainNavbar = () => {
                   </Link>
                   <Link href="/products" passHref>
                     <a
+                      onClick={() => setShowOffcanvas(!showOffcanvas)}
                       className={`p-2 d-lg-flex  justify-content-center align-items-center ${
                         router.pathname === "/products" ? "active" : ""
                       }`}
@@ -78,6 +88,7 @@ const MainNavbar = () => {
                   </Link>
                   <Link href="/cart" passHref>
                     <a
+                      onClick={() => setShowOffcanvas(!showOffcanvas)}
                       className={`p-2 d-flex justify-content-center align-items-center ${
                         router.pathname === "/cart" ? "active" : ""
                       }`}
