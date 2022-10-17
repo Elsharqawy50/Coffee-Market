@@ -10,7 +10,7 @@ const CartItemsSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.totalAmount = state.totalAmount + action.payload.price * action.payload.amount
+      state.totalAmount = state.totalAmount + action.payload.price 
       const itemIndex = state.items.findIndex((item) => item.id === action.payload.id)
       const itemFounded = state.items[itemIndex]
       if (itemFounded) {

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { CartItemsActions } from "../../store/CartItemsSlice";
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -33,6 +34,7 @@ const Cart = () => {
 
   const restItemsHandler = () => {
     dispatch(CartItemsActions.restItems())
+    toast.success("Order Successful")
   }
 
   return (
