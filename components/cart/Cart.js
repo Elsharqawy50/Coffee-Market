@@ -8,12 +8,21 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { CartItemsActions } from "../../store/CartItemsSlice";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const Cart = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItems.items);
   const totalAmount = useSelector((state) => state.cartItems.totalAmount);
+
+  useEffect(() => {
+    if (localStorage.getItem("cartItems")) {
+      dispatch(
+        CartItemsActions.setItems(JSON.parse(localStorage.getItem("cartItems")))
+      );
+    }
+  }, [dispatch]);
 
   //make two numbers of digits to appear after the decimal point
   const totalAmountNum = totalAmount.toFixed(2);
@@ -33,9 +42,9 @@ const Cart = () => {
   ));
 
   const restItemsHandler = () => {
-    dispatch(CartItemsActions.restItems())
-    toast.success("Order Successful")
-  }
+    dispatch(CartItemsActions.restItems());
+    toast.success("Order Successful");
+  };
 
   return (
     <section className={`${classes.cart} py-5`}>
@@ -59,7 +68,12 @@ const Cart = () => {
               {hasItems && (
                 <Link href="/">
                   <a>
-                    <Button onClick={restItemsHandler} className="px-3 py-2 mt-2">Order</Button>
+                    <Button
+                      onClick={restItemsHandler}
+                      className="px-3 py-2 mt-2"
+                    >
+                      Order
+                    </Button>
                   </a>
                 </Link>
               )}
